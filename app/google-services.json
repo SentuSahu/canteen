@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "560777863236",
+    "firebase_url": "https://sweets-3d5f5.firebaseio.com",
+    "project_id": "sweets-3d5f5",
+    "storage_bucket": "sweets-3d5f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:560777863236:android:a36a104ef4ec1951b01c11",
+        "android_client_info": {
+          "package_name": "com.hungry.online.sweets"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "560777863236-bcthjq2cqb63qrsunsaik2k3u4b2an3c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3RoSdlpv4gK1K9Rsq3JxK-z1yzTcuOUk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "560777863236-bcthjq2cqb63qrsunsaik2k3u4b2an3c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
