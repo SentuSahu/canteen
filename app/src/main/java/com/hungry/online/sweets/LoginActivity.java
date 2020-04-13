@@ -7,15 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private Button login;
     private EditText email, password;
+    private TextView signup;
     private FirebaseAuth auth;
 
     @Override
@@ -26,9 +28,10 @@ public class LoginActivity extends AppCompatActivity {
         login = findViewById(R.id.login);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
+        signup = findViewById(R.id.signupheretextView);
 
         auth = FirebaseAuth.getInstance();
-
+        signup.setOnClickListener(this);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,5 +54,13 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(R.id.signupheretextView == v.getId()){
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(intent);
+        }
     }
 }
