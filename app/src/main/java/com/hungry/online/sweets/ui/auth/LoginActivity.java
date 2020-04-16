@@ -1,4 +1,4 @@
-package com.hungry.online.sweets;
+package com.hungry.online.sweets.ui.auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.hungry.online.sweets.StartActivity;
+import com.hungry.online.sweets.R;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private Button login;
@@ -49,7 +51,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void onSuccess(AuthResult authResult) {
 //                startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                Intent i=new Intent(LoginActivity.this,Main3Activity.class);
+                Intent i=new Intent(LoginActivity.this, StartActivity.class);
                 startActivity(i);
 
             }
