@@ -1,4 +1,4 @@
-package com.hungry.online.sweets.ui.auth;
+package com.hungry.online.sweets;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,8 +16,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.hungry.online.sweets.Home;
-import com.hungry.online.sweets.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
     private Button register_button;
@@ -70,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                     Toast.makeText(RegisterActivity.this, "Almost Done", Toast.LENGTH_SHORT).show();
-                    Intent intent=new Intent(RegisterActivity.this, Home.class);
+                    Intent intent=new Intent(RegisterActivity.this,Home.class);
                     startActivity(intent);
                 }else{
                     Toast.makeText(RegisterActivity.this, "User Not Register", Toast.LENGTH_SHORT).show();

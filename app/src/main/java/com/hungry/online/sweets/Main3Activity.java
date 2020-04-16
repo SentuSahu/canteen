@@ -1,6 +1,7 @@
 package com.hungry.online.sweets;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.RelativeLayout;
@@ -12,6 +13,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
@@ -21,7 +23,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class StartActivity extends AppCompatActivity {
+public class Main3Activity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -64,7 +66,7 @@ public class StartActivity extends AppCompatActivity {
                 if (destination.getId()==R.id.nav_home)
                 {
                     r1.setVisibility(View.INVISIBLE);
-                    Toast.makeText(StartActivity.this, "Home", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Main3Activity.this, "Home", Toast.LENGTH_SHORT).show();
                 }
                 if (destination.getId()==R.id.nav_gallery)
                 {
@@ -73,7 +75,7 @@ public class StartActivity extends AppCompatActivity {
                 if (destination.getId()==R.id.nav_slideshow)
                 {
                     r1.setVisibility(View.INVISIBLE);
-                    Toast.makeText(StartActivity.this, "veg", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Main3Activity.this, "veg", Toast.LENGTH_SHORT).show();
                 }
 
 
