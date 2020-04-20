@@ -33,12 +33,12 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        recyclerView = root.findViewById(R.id.recycleView_item_menu);
-        mAdapter = new HomeAdapter(itemList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(mAdapter);
-        item_menu item = new item_menu("chai","10 $");
+//        recyclerView = root.findViewById(R.id.recycleView_item_menu);
+//        mAdapter = new HomeAdapter(itemList);
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+//        recyclerView.setLayoutManager(layoutManager);
+//        recyclerView.setAdapter(mAdapter);
+//        item_menu item = new item_menu("chai","10 $");
 
 
 //        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
