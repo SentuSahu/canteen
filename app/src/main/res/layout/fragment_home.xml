@@ -1,29 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_height="wrap_content"
+    android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment"
-    android:background="#D6DFDE"
-    >
+    android:background="#E8C07F"
+    tools:context=".ui.home.HomeFragment">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="SELECT"
+        android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:padding="16dp"
-        >
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="40sp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleView_item_menu"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:background="#ffffff"
-        tools:listitem="@layout/item_today_special"
-        />
 
-    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
