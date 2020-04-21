@@ -49,19 +49,23 @@ public class GalleryFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.vegButton){
-            Fragment fragment = new VegFragment();
-            FragmentManager fragmentManager = getChildFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.frameLayout,fragment);
-            fragmentTransaction.commit();
+            VegFragment fragment = new VegFragment();
+
+            getFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).commit();
+//            FragmentManager fragmentManager = getChildFragmentManager();
+//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//            fragmentTransaction.replace(R.id.frameLayout,fragment);
+//            fragmentTransaction.commit();
             Log.d("debug","successfully commit VEG");
         }
         else{
-            Fragment fragment = new NonVegFragment();
-            FragmentManager fragmentManager = getChildFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.frameLayout, fragment);
-            fragmentTransaction.commit();
+            NonVegFragment fragment = new NonVegFragment();
+
+            getFragmentManager().beginTransaction().replace(R.id.frameLayout,fragment).commit();
+//            FragmentManager fragmentManager = getChildFragmentManager();
+//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//            fragmentTransaction.replace(R.id.frameLayout, fragment);
+//            fragmentTransaction.commit();
             Log.d("debug","successfully commit NON veg");
         }
 
