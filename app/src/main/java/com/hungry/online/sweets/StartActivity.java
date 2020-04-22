@@ -63,17 +63,19 @@ public class StartActivity extends AppCompatActivity {
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
                 if (destination.getId()==R.id.nav_home)
                 {
-                    r1.setVisibility(View.INVISIBLE);
+                    r1.setVisibility(View.VISIBLE);
                     Toast.makeText(StartActivity.this, "Home", Toast.LENGTH_SHORT).show();
                 }
                 if (destination.getId()==R.id.nav_gallery)
                 {
                     r1.setVisibility(View.VISIBLE);
+                    Toast.makeText(StartActivity.this, "Menu", Toast.LENGTH_SHORT).show();
+
                 }
                 if (destination.getId()==R.id.nav_slideshow)
                 {
                     r1.setVisibility(View.INVISIBLE);
-                    Toast.makeText(StartActivity.this, "veg", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(StartActivity.this, "Cart", Toast.LENGTH_SHORT).show();
                 }
 
 
