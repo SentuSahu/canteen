@@ -25,7 +25,7 @@ public class VegFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_veg, container, false);
         ArrayList<String> VegItems = new ArrayList<>();
         VegItems.add("Panner MAsala");
-        VegItems.add("Panner MAsala");
+        VegItems.add("Panner Tikka");
         VegItems.add("Panner MAsala");
         VegItems.add("Panner MAsala");
 
