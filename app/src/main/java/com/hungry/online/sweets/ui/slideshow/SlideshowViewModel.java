@@ -4,7 +4,10 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.google.firebase.database.FirebaseDatabase;
+
 public class SlideshowViewModel extends ViewModel {
+
 
     private MutableLiveData<String> mText;
 
