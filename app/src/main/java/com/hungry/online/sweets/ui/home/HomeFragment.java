@@ -1,26 +1,27 @@
 package com.hungry.online.sweets.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.hungry.online.sweets.R;
-import com.hungry.online.sweets.model.item_menu;
+import com.hungry.online.sweets.model.ItemMenu;
+import com.hungry.online.sweets.ui.PostActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
-    private List<item_menu> itemList = new ArrayList<>();
+    private List<ItemMenu> itemList = new ArrayList<>();
     private RecyclerView recyclerView;
     private HomeAdapter mAdapter;
 
@@ -28,7 +29,7 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
-            ViewGroup container, Bundle savedInstanceState) {
+                             final ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
@@ -47,6 +48,9 @@ public class HomeFragment extends Fragment {
 ////                textView.setText(s);
 //            }
 //        });
+
+
+
         return root;
     }
 

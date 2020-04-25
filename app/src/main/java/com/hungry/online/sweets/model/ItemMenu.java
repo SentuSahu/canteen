@@ -1,11 +1,11 @@
 package com.hungry.online.sweets.model;
 
-public class item_menu {
+public class ItemMenu {
 
     private String item_name = "";
     private String item_price = "";
 
-    public item_menu(String item_name, String item_price) {
+    public ItemMenu(String item_name, String item_price) {
         this.item_name = item_name;
         this.item_price = item_price;
     }

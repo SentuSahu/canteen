@@ -9,13 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hungry.online.sweets.R;
-import com.hungry.online.sweets.model.item_menu;
+import com.hungry.online.sweets.model.ItemMenu;
 
 import java.util.List;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
 
-    private List<item_menu> itemlist;
+    private List<ItemMenu> itemlist;
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
@@ -28,7 +28,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         }
     }
 
-    public HomeAdapter(List<item_menu> item){
+    public HomeAdapter(List<ItemMenu> item){
         this.itemlist = item;
     }
 
@@ -43,7 +43,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        item_menu item = itemlist.get(position);
+        ItemMenu item = itemlist.get(position);
         holder.itemName.setText(item.getItem_name());
         holder.itemPrice.setText(item.getItem_price());
 
