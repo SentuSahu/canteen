@@ -25,10 +25,10 @@ public class NonVegFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_non_veg, container, false);
 
         ArrayList<String> NonVegItems = new ArrayList<>();
-        NonVegItems.add("chicken");
-        NonVegItems.add("mutton MAsala");
-        NonVegItems.add("Egg MAsala");
-        NonVegItems.add("fish MAsala");
+//        NonVegItems.add("chicken");
+//        NonVegItems.add("mutton MAsala");
+//        NonVegItems.add("Egg MAsala");
+//        NonVegItems.add("fish MAsala");
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerViewNonVeg);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

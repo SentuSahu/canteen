@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hungry.online.sweets.R;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 public class NonVegAdapter extends RecyclerView.Adapter<NonVegAdapter.ViewHolder> {
@@ -34,7 +32,8 @@ public class NonVegAdapter extends RecyclerView.Adapter<NonVegAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String ButterPanner = data.get(position);
-        holder.textView.setText(ButterPanner);
+        holder.itemname.setText(ButterPanner);
+        holder.itemprice.setText(ButterPanner);
     }
 
     @Override
@@ -43,10 +42,11 @@ public class NonVegAdapter extends RecyclerView.Adapter<NonVegAdapter.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView textView;
+        TextView itemname, itemprice;
         public ViewHolder(View view) {
             super(view);
-            textView = view.findViewById(R.id.row);
+            itemname = view.findViewById(R.id.menuname);
+            itemprice = view.findViewById(R.id.menuprice);
         }
     }
 }

@@ -21,56 +21,37 @@ import com.google.firebase.database.ValueEventListener;
 import com.hungry.online.sweets.R;
 import com.hungry.online.sweets.model.ItemMenu;
 
-public class PostActivity extends AppCompatActivity {
-    FirebaseAuth auth;
-    FirebaseDatabase database;
-    String uid;
+public class PostActivity extends AppCompatActivity implements View.OnClickListener {
+
+    EditText itemName, itemPrice;
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference myRef = database.getReference("items");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
 
-        final EditText itemName = findViewById(R.id.item_name);
-        final EditText itemPrice = findViewById(R.id.item_price);
+        itemName = findViewById(R.id.item_name);
+        itemPrice = findViewById(R.id.item_price);
         Button addItems = findViewById(R.id.add);
 
-        auth = FirebaseAuth.getInstance();
-
-        FirebaseUser user = auth.getCurrentUser();
-        uid = user.getUid();
-
-        database = FirebaseDatabase.getInstance();
-        final DatabaseReference db_reference = database.getReference("posts");
-        addItems.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Query itemname = database.getReference("item").child(uid);
-                itemname.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.exists()){
-//                            db_reference.child(uid).child("itemName")
-//                                    .setValue(dataSnapshot.getValue(ItemMenu.class).getItem_name());
-                            db_reference.child(uid).child("ItemName").setValue(itemName.getText().toString());
-                            db_reference.child(uid).child("ItemPrice").setValue(itemPrice.getText().toString());
-
-                            Toast.makeText(PostActivity.this, "Your post has been created successfully",
-                                    Toast.LENGTH_LONG).show();
-                            Log.d("debug","success");
-
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        Log.d("debug", databaseError.getMessage());
-
-                    }
-                });
-            }
-        });
+        addItems.setOnClickListener(this);
 
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        String name = itemName.getText().toString();
+        String price = itemPrice.getText().toString();
+        addItems(name,price);
+    }
+
+    private void addItems(String name, String price) {
+        ItemMenu itemMenu = new ItemMenu(name, price);
+        String userId = "";
+        myRef.child("Sweets").child("items").push().setValue(itemMenu);
+        Toast.makeText(this, "added Successfully", Toast.LENGTH_SHORT).show();
     }
 }

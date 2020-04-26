@@ -14,11 +14,21 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.hungry.online.sweets.R;
+import com.hungry.online.sweets.model.ItemMenu;
+import com.hungry.online.sweets.ui.gallery.menu.NonVegAdapter;
 import com.hungry.online.sweets.ui.gallery.menu.NonVegFragment;
 import com.hungry.online.sweets.ui.gallery.menu.VegFragment;
 
-public class GalleryFragment extends Fragment implements View.OnClickListener {
+public class GalleryFragment extends Fragment {
 
     Button Vbutton, NVbutton;
     private GalleryViewModel galleryViewModel;
@@ -35,39 +45,31 @@ public class GalleryFragment extends Fragment implements View.OnClickListener {
 //                textView.setText(s);
 //            }
 //        });
-        Vbutton = root.findViewById(R.id.vegButton);
-        NVbutton = root.findViewById(R.id.nonVegButton);
+        final ItemMenu itemMenu = new ItemMenu();
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("items");
 
-        Vbutton.setOnClickListener(this);
-        NVbutton.setOnClickListener(this);
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                ItemMenu itemMenu = dataSnapshot.getValue(ItemMenu.class);
+                Log.d("debug","value is "+dataSnapshot.getValue());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            Log.w("debug", "Failed to read value.");
+            }
+        });
+
+//        RecyclerView recyclerView = root.findViewById(R.id.recyclerViewNonVeg);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+//        NonVegAdapter nonVegAdapter = new NonVegAdapter(getActivity(),NonVegItems);
+//        recyclerView.setAdapter(nonVegAdapter);
+
 
 
 
         return root;
-    }
-
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.vegButton){
-            VegFragment fragment = new VegFragment();
-
-            getFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).commit();
-//            FragmentManager fragmentManager = getChildFragmentManager();
-//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//            fragmentTransaction.replace(R.id.frameLayout,fragment);
-//            fragmentTransaction.commit();
-            Log.d("debug","successfully commit VEG");
-        }
-        else{
-            NonVegFragment fragment = new NonVegFragment();
-
-            getFragmentManager().beginTransaction().replace(R.id.frameLayout,fragment).commit();
-//            FragmentManager fragmentManager = getChildFragmentManager();
-//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//            fragmentTransaction.replace(R.id.frameLayout, fragment);
-//            fragmentTransaction.commit();
-            Log.d("debug","successfully commit NON veg");
-        }
-
     }
 }
