@@ -10,6 +10,10 @@ public class ItemMenu {
         this.item_price = item_price;
     }
 
+    public ItemMenu() {
+
+    }
+
     public String getItem_name() {
         return item_name;
     }
