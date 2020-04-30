@@ -19,7 +19,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.hungry.online.sweets.R;
-import com.hungry.online.sweets.model.ItemMenu;
 
 public class PostActivity extends AppCompatActivity {
     FirebaseAuth auth;

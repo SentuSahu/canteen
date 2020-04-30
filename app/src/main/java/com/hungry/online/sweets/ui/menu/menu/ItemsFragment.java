@@ -1,4 +1,4 @@
-package com.hungry.online.sweets.ui.gallery.menu;
+package com.hungry.online.sweets.ui.menu.menu;
 
 import android.os.Bundle;
 
@@ -9,13 +9,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.hungry.online.sweets.R;
 
 import java.util.ArrayList;
 
-public class NonVegFragment extends Fragment {
+public class ItemsFragment extends Fragment {
 
+    TextView add, sub, total;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -24,16 +27,22 @@ public class NonVegFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_non_veg, container, false);
 
-        ArrayList<String> NonVegItems = new ArrayList<>();
-        NonVegItems.add("chicken");
-        NonVegItems.add("mutton MAsala");
-        NonVegItems.add("Egg MAsala");
-        NonVegItems.add("fish MAsala");
+        add = view.findViewById(R.id.add_amount);
+        sub = view.findViewById(R.id.sub_amount);
+        total = view.findViewById(R.id.total_amount);
+
+
+        ArrayList<String> ItemsMenu = new ArrayList<>();
+        ItemsMenu.add("chicken");
+        ItemsMenu.add("mutton MAsala");
+        ItemsMenu.add("Egg MAsala");
+        ItemsMenu.add("fish MAsala");
+        
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerViewNonVeg);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        NonVegAdapter nonVegAdapter = new NonVegAdapter(getActivity(),NonVegItems);
-        recyclerView.setAdapter(nonVegAdapter);
+        ItemsAdapter itemsAdapter = new ItemsAdapter(getActivity(),ItemsMenu);
+        recyclerView.setAdapter(itemsAdapter);
 
         return view;
     }

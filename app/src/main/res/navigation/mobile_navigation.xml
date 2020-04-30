@@ -31,13 +31,13 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.hungry.online.sweets.ui.gallery.GalleryFragment"
+        android:name="com.hungry.online.sweets.ui.menu.MenuFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.hungry.online.sweets.ui.slideshow.SlideshowFragment"
+        android:name="com.hungry.online.sweets.ui.cart.CartFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
 </navigation>
