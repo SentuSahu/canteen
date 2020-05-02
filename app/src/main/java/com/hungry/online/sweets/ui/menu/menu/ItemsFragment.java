@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 public class ItemsFragment extends Fragment {
 
-    TextView add, sub, total;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,14 +26,10 @@ public class ItemsFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_non_veg, container, false);
 
-        add = view.findViewById(R.id.add_amount);
-        sub = view.findViewById(R.id.sub_amount);
-        total = view.findViewById(R.id.total_amount);
-
 
         ArrayList<String> ItemsMenu = new ArrayList<>();
         ItemsMenu.add("chicken");
-        ItemsMenu.add("mutton MAsala");
+        ItemsMenu.add("wadapav");
         ItemsMenu.add("Egg MAsala");
         ItemsMenu.add("fish MAsala");
         

@@ -16,7 +16,7 @@ import com.hungry.online.sweets.ui.menu.menu.ItemsFragment;
 
 public class MenuFragment extends Fragment implements View.OnClickListener {
 
-    Button checkoutBtn ;
+    Button checkoutBtn, menubtn ;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              final ViewGroup container, Bundle savedInstanceState) {
@@ -28,7 +28,10 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
         getFragmentManager().beginTransaction().replace(R.id.frameLayout,fragment).commit();
 
         checkoutBtn = root.findViewById(R.id.checkout);
+        menubtn = root.findViewById(R.id.menuadd);
         checkoutBtn.setOnClickListener(this);
+//        menubtn.oncl
+
 
         return root;
     }
