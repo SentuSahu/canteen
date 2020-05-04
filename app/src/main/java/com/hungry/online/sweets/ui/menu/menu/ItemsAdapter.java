@@ -23,8 +23,10 @@ import java.util.List;
 
 public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> {
 
+
     private int rate = 0;
     private List<String> data;
+    private List<CartDTO> cartDTOList;
     private LayoutInflater layoutInflater;
     public ItemsAdapter(Context context, List<String> data) {
         this.data = data;
@@ -40,13 +42,17 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        String ButterPanner = data.get(position);
-        holder.textView.setText(ButterPanner);
+        final CartDTO cartDTO = cartDTOList.get(position);
+//        holder.textView.setText(cartDTO);
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 rate = rate + 120;
+//                cartDTO.setItem(holder.textView.getText().toString());
+//                cartDTO.setTotal(rate);
+                holder.setCart(cartDTO);
                 Log.d("total","click success  : "+ rate + holder.textView.getText());
+
 
             }
         });
@@ -65,6 +71,11 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
             textView = view.findViewById(R.id.row);
             btn = view.findViewById(R.id.menuadd);
             checkout = view.findViewById(R.id.checkout);
+        }
+
+        public void setCart(CartDTO cartDTO) {
+            Log.d("adapter", "setCart: " + cartDTO);
+
         }
     }
 }
