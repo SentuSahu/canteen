@@ -26,7 +26,6 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
 
     private int rate = 0;
     private List<String> data;
-    private List<CartDTO> cartDTOList;
     private LayoutInflater layoutInflater;
     public ItemsAdapter(Context context, List<String> data) {
         this.data = data;
@@ -41,16 +40,16 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        final CartDTO cartDTO = cartDTOList.get(position);
-//        holder.textView.setText(cartDTO);
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
+        holder.textView.setText(data.get(position));
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 rate = rate + 120;
-//                cartDTO.setItem(holder.textView.getText().toString());
-//                cartDTO.setTotal(rate);
-                holder.setCart(cartDTO);
+                holder.cartDTO.setTotal(rate);
+                holder.cartDTO.setItem(data.get(position));
+                Log.d("debug","cart item "+holder.cartDTO.getItem());
+                Log.d("debug","cart total "+holder.cartDTO.getTotal());
                 Log.d("total","click success  : "+ rate + holder.textView.getText());
 
 
@@ -66,6 +65,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView textView, count;
         Button btn, checkout;
+        CartDTO cartDTO = new CartDTO();
         public ViewHolder(View view) {
             super(view);
             textView = view.findViewById(R.id.row);

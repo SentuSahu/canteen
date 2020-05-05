@@ -2,6 +2,7 @@ package com.hungry.online.sweets;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.RelativeLayout;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.hungry.online.sweets.ui.PostActivity;
 
 import androidx.annotation.NonNull;
@@ -24,6 +26,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class StartActivity extends AppCompatActivity {
+
+    private FirebaseAuth auth;
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -78,7 +82,7 @@ public class StartActivity extends AppCompatActivity {
                 }
                 if (destination.getId()==R.id.nav_slideshow)
                 {
-                    r1.setVisibility(View.INVISIBLE);
+                    r1.setVisibility(View.VISIBLE);
                     Toast.makeText(StartActivity.this, "Cart", Toast.LENGTH_SHORT).show();
                 }
 
@@ -101,6 +105,13 @@ public class StartActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
 
+    }
+
+    public void signout(MenuItem item) {
+
+        FirebaseAuth.getInstance().signOut();
+        startActivity( new Intent(StartActivity.this, MainActivity.class));
+        finish();
     }
 
 //    public boolean onNavigationItemSelected(MenuItem item) {

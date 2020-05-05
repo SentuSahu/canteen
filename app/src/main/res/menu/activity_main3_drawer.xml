@@ -20,6 +20,7 @@
         <item
             android:id="@+id/nav_log_out"
              android:tint="@android:color/white"
+            android:onClick="signout"
             android:title="Sign Out" />
 
 

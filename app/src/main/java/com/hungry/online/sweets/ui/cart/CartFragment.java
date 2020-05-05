@@ -34,7 +34,7 @@ public class CartFragment extends Fragment {
         item = root.findViewById(R.id.itemCart);
         rate = root.findViewById(R.id.rateCart);
         item.setText(cartDTO.getItem());
-//        rate.setText(cartDTO.getTotal());
+        rate.setText(cartDTO.getTotal());
 
         Log.d("cart","values : " + cartDTO.getItem().toString() + " " + cartDTO.getTotal());
 
